@@ -127,20 +127,39 @@ def ej4():
     palabra_1 = input("insterta la 1er palabra:\n")
     palabra_2 = input("insterta la 2da palabra:\n")
     palabra_3 = input("insterta la 3er palabra:\n")
-    lista = print(palabra_3, palabra_2, palabra_1)
-    
-    if palabra_1 > palabra_2 and palabra_2 > palabra_3:
-        print(palabra_1, palabra_2, palabra_3)
-    elif palabra_1 > palabra_3 and palabra_3 > palabra_2:
-        print(palabra_1, palabra_3, palabra_2)
-    elif palabra_2 > palabra_1 and palabra_1 > palabra_3:
-        print(palabra_2, palabra_1, palabra_3)
-    elif palabra_2 > palabra_3 and palabra_3 > palabra_1:
-        print(palabra_2, palabra_3, palabra_1)
-    elif palabra_3 > palabra_1 and palabra_1 > palabra_2:
-        print(palabra_3, palabra_1, palabra_2)
+    orden = int(input("ingresa 1 si queres ordenar alfabeticamente o 2 si queres orden por longitud:\n"))
+    if orden == 1:
+        print("Elegiste ordenar alfabeticamente")
     else:
-        print(palabra_3, palabra_2, palabra_1)
+        print("Elegiste ordenar por largo de letras")
+
+    if orden == 1:
+        if palabra_1 > palabra_2 and palabra_2 > palabra_3:
+            print(palabra_3, "esta 1ro,", palabra_2, "esta 2do y", palabra_1, "3ro")
+        elif palabra_1 > palabra_3 and palabra_3 > palabra_2:
+            print(palabra_2, "esta 1ro,", palabra_3, "esta 2do y", palabra_1, "3ro")
+        elif palabra_2 > palabra_1 and palabra_1 > palabra_3:
+            print(palabra_3, "esta 1ro,", palabra_1, "esta 2do y", palabra_2, "3ro")
+        elif palabra_2 > palabra_3 and palabra_3 > palabra_1:
+            print(palabra_1, "esta 1ro,", palabra_3, "esta 2do y", palabra_2, "3ro")
+        elif palabra_3 > palabra_1 and palabra_1 > palabra_2:
+            print(palabra_2, "esta 1ro,", palabra_1, "esta 2do y", palabra_3, "3ro")
+        else:
+            print(palabra_1, "esta 1ro,", palabra_2, "esta 2do y", palabra_3, "3ro")
+    else:
+        if len(palabra_1) > len(palabra_2) and len(palabra_2) > len(palabra_3):
+            print("el orden por largo de letras es:", palabra_1, palabra_2, palabra_3)
+        elif len(palabra_1) > len(palabra_3) and len(palabra_3) > len(palabra_2):
+            print("el orden por largo de letras es:", palabra_1, palabra_3, palabra_2)
+        elif len(palabra_2) > len(palabra_1) and len(palabra_1) > len(palabra_3):
+            print("el orden por largo de letras es:", palabra_2, palabra_1, palabra_3)
+        elif len(palabra_2) > len(palabra_3) and len(palabra_3) > len(palabra_1):
+            print("el orden por largo de letras es:", palabra_2, palabra_3, palabra_1)
+        elif len(palabra_3) > len(palabra_1) and len(palabra_1) > len(palabra_2):
+            print("el orden por largo de letras es:", palabra_3, palabra_1, palabra_2)
+        else:
+            print("el orden por largo de letras es:", palabra_3, palabra_2, palabra_1)
+    
 
 
 def ej5():
@@ -155,11 +174,44 @@ def ej5():
 
     En cada caso imprimir en pantalla el resultado
     '''
+    
+
+    temp_1 = int(input("ingrese la 1er toma de temperatura:\n"))
+    temp_2 = int(input("ingrese la 1er toma de temperatura:\n"))
+    temp_3 = int(input("ingrese la 1er toma de temperatura:\n"))
+
+    if temp_1 > temp_2 and temp_1 > temp_3:
+        print(temp_1, "es la tempertura máxima")
+    elif temp_2 > temp_1 and temp_2 > temp_3:
+        print(temp_2, "es la temperatura máxima")
+    else:
+        print(temp_3, "es la temperatura máxima")
+    
+    if temp_1 < temp_2 and temp_1 < temp_3:
+        print(temp_1, "es la tempertura mínima")
+    elif temp_2 < temp_1 and temp_2 < temp_3:
+        print(temp_2, "es la temperatura mínima")
+    else:
+        print(temp_3, "es la temperatura mínima")
+    
+
+
+    temperaturas = [temp_1, temp_2, temp_3] 
+    suma = 0
+    contador = 0 
+    
+    for elemento in temperaturas:
+        suma += elemento
+        contador += 1
+    
+    promedio = suma / contador
+    print("el promedio de las temperaturas es:", promedio)
+    
 
 if __name__ == '__main__':
     print("Ejercicios de práctica")
     #ej1()
     #ej2()
     #ej3()
-    ej4()
-    #ej5()
+    #ej4()
+    ej5()
